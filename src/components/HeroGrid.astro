@@ -32,6 +32,7 @@ const { sections, defaultImage } = Astro.props;
       href={section.href}
       class="hero-section"
       data-index={index}
+      style={`--section-bg: url('${section.hoverImage}')`}
     >
       <div class="hero-section__content">
         <h2 class="hero-section__title">{section.title}</h2>
@@ -114,17 +115,34 @@ const { sections, defaultImage } = Astro.props;
     margin-top: 0.5rem;
   }
 
-  /* Mobile: stack vertically */
+  /* Mobile: stack vertically with individual backgrounds */
   @media (max-width: 768px) {
     .hero-grid {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, 1fr);
     }
 
+    .hero-bg,
+    .hero-grid__overlay {
+      display: none;
+    }
+
     .hero-section {
       border-right: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       align-items: center;
+      background-image: var(--section-bg);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
     }
 
     .hero-section:last-child {
@@ -133,6 +151,8 @@ const { sections, defaultImage } = Astro.props;
 
     .hero-section__content {
       padding-bottom: 0;
+      position: relative;
+      z-index: 1;
     }
   }
 </style>
