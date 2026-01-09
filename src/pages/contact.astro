@@ -1,0 +1,179 @@
+---
+import Layout from "../layouts/Layout.astro"
+import global_settings from "../data/global_settings.json"
+---
+
+<Layout title="Kontakt - Philipp Kaider">
+  <section class="bs-container py-16 lg:py-24">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h1 class="bs-h1 mb-6">Kontakt</h1>
+
+        <p class="contact-intro">
+          Für Anfragen, Partnerschaften oder allgemeine Fragen kannst du mich
+          über folgende Wege erreichen.
+        </p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <h3>E-Mail</h3>
+            <a href="mailto:info@philippkaider.at">info@philippkaider.at</a>
+          </div>
+
+          <div class="contact-method">
+            <h3>Social Media</h3>
+            <div class="social-links">
+              {global_settings.social_links.map(link => (
+                <a href={link.link} target="_blank" rel="noopener">{link.title}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Betreff</label>
+            <select id="subject" name="subject">
+              <option value="general">Allgemeine Anfrage</option>
+              <option value="partnership">Partnerschaft</option>
+              <option value="media">Medienanfrage</option>
+              <option value="other">Sonstiges</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="bs-btn">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+    }
+  }
+
+  .contact-intro {
+    color: var(--color-bs-foreground-dark);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-method h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-bs-foreground-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-method a {
+    color: var(--color-bs-foreground-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-method a:hover {
+    color: var(--color-bs-foreground-light);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-form-wrapper {
+    background: var(--color-bs-surface-2);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-bs-foreground-light);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--color-bs-surface-1);
+    border: 1px solid var(--color-bs-surface-3);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-bs-foreground-light);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-bs-foreground-dark);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .bs-btn {
+    align-self: flex-start;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Form submission logic would go here
+    alert('Vielen Dank für deine Nachricht! Ich werde mich bald melden.');
+    form.reset();
+  });
+</script>

@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Über mich - Philipp Kaider">
+  <section class="bs-container py-16 lg:py-24">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="/images/about-profile.jpg" alt="Philipp Kaider" class="about-image-photo" />
+      </div>
+
+      <div class="about-content">
+        <h1 class="bs-h1 mb-6">Über mich</h1>
+
+        <div class="about-text">
+          <p class="lead">
+            Ultra-Cyclist aus Wolkersdorf, Niederösterreich. Vom Raucher zum RAAM-Sieger.
+          </p>
+
+          <h2>Meine Geschichte</h2>
+          <p>
+            Über 10 Jahre lang rauchte ich eine Packung Zigaretten am Tag. 2012 tauschte ich
+            die Zigaretten gegen ein Fahrrad – der Beginn einer unglaublichen Reise. Was als
+            Flucht aus der Sucht begann, wurde zu einer Leidenschaft, die mich zu einem der
+            erfolgreichsten Ultra-Radsportler Europas gemacht hat.
+          </p>
+          <p>
+            Im Hauptberuf bin ich diplomierter Krankenpfleger – eine Arbeit, die mich geerdet
+            hält und mir zeigt, was wirklich wichtig ist im Leben.
+          </p>
+
+          <h2>Erfolge</h2>
+          <ul>
+            <li><strong>Race Across America Sieger 2025</strong> – 4.900 km in 8d 22h 32min</li>
+            <li><strong>24-Stunden Zeitfahren Weltmeister</strong> 2022 & 2024</li>
+            <li><strong>Österreichischer Ultra-Cycling Meister</strong> 2024</li>
+            <li><strong>Vize-Weltmeister Ultra-Cycling</strong> 2024</li>
+            <li><strong>Guinness Weltrekord:</strong> Österreich-Durchquerung in 19 Stunden (2023)</li>
+            <li><strong>Sieger Race Around Austria</strong></li>
+            <li><strong>Sieger Race Around Niederösterreich</strong></li>
+          </ul>
+
+          <h2>Der Rekord</h2>
+          <p>
+            Am 24. Juni 2023 brach ich den 11 Jahre alten Trans-Austria-Rekord. 673 Kilometer
+            von Feldkirch nach Nickelsdorf, über 4.000 Höhenmeter – in exakt 19 Stunden mit
+            einer Durchschnittsgeschwindigkeit von 35,42 km/h.
+          </p>
+          <p>
+            <em>"Ich weiß selbst noch nicht ganz, warum ich so schnell war... eine Minute von
+            einer Sub-18-Stunden-Zeit entfernt. Es ist unglaublich."</em>
+          </p>
+
+          <h2>Philosophie</h2>
+          <p>
+            Ultra-Cycling ist mehr als Sport – es ist eine mentale Herausforderung. Der Körper
+            kann mehr, als der Kopf glaubt. Jeder Kilometer zeigt mir, dass Grenzen nur im
+            Kopf existieren.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+    }
+  }
+
+  .about-image-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .about-text {
+    color: var(--color-bs-foreground-dark);
+    line-height: 1.7;
+  }
+
+  .about-text .lead {
+    font-size: 1.25rem;
+    color: var(--color-bs-foreground-light);
+    margin-bottom: 2rem;
+  }
+
+  .about-text h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-bs-foreground-light);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p {
+    margin-bottom: 1rem;
+  }
+
+  .about-text ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-text li {
+    margin-bottom: 0.5rem;
+  }
+
+  .about-text em {
+    color: var(--color-bs-foreground-light);
+    font-style: italic;
+  }
+</style>

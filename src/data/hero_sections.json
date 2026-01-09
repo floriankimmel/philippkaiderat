@@ -1,0 +1,29 @@
+{
+  "defaultImage": "/images/hero-default.jpg",
+  "sections": [
+    {
+      "title": "ÜBER MICH",
+      "subtitle": "About",
+      "href": "/about",
+      "hoverImage": "/images/hero-about.jpg"
+    },
+    {
+      "title": "BLOG",
+      "subtitle": "News",
+      "href": "/blog",
+      "hoverImage": "/images/hero-blog.jpg"
+    },
+    {
+      "title": "PARTNER",
+      "subtitle": "Sponsors",
+      "href": "/sponsors",
+      "hoverImage": "/images/hero-sponsors.jpg"
+    },
+    {
+      "title": "KONTAKT",
+      "subtitle": "Contact",
+      "href": "/contact",
+      "hoverImage": "/images/hero-contact.jpg"
+    }
+  ]
+}

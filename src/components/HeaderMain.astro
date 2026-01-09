@@ -1,0 +1,65 @@
+---
+import Logo from '../assets/theme-images/logo.svg'
+
+const { settings } = Astro.props
+---
+
+<header class="wrapper font-semibold">
+  <div class="bs-container py-6 flex justify-between items-center">
+
+    <!-- Logo -->
+    <a class="flex xl:min-w-32 group" href="/" aria-label={settings.title + ' - Home'}>
+      <Logo class="group-hover:-rotate-180 group-hover:scale-80 transition-transform ease-bs-spring duration-1000" height="48" width="48" />
+    </a>
+
+    <!-- Nav -->
+    <nav class="hidden md:flex mx-auto self-stretch lg:gap-2">
+      {settings.nav.map(item =>
+        <a class="bs-btn !bg-transparent before:translate-y-full hover:before:translate-y-0" href={item.link}>
+          {item.title}
+        </a>
+      )}
+    </nav>
+
+    <!-- Social links -->
+    <div class="hidden xl:flex gap-4">
+      {settings.social_links.map(link =>
+        <a class="text-sm opacity-70 hover:opacity-100 transition-opacity" href={link.link} target="_blank" rel="noopener">
+          {link.title}
+        </a>
+      )}
+    </div>
+
+    <!-- Mobile menu button -->
+    <button type="button" class="md:hidden bs-btn" aria-label="Menu" id="mobile-menu-btn">
+      Menu
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav id="mobile-nav" class="fixed inset-0 bg-bs-surface-0 z-50 hidden flex-col items-center justify-center gap-6">
+  <button type="button" class="absolute top-6 right-6 bs-btn" id="mobile-close-btn">Close</button>
+  {settings.nav.map(item =>
+    <a class="text-2xl font-semibold" href={item.link}>
+      {item.title}
+    </a>
+  )}
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileNav?.classList.remove('hidden');
+    mobileNav?.classList.add('flex');
+  });
+
+  mobileCloseBtn?.addEventListener('click', () => {
+    mobileNav?.classList.add('hidden');
+    mobileNav?.classList.remove('flex');
+  });
+</script>

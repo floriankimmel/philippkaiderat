@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+const sponsors = [
+  { name: "Radiometer", tier: "main" },
+  { name: "Specialized", tier: "main" },
+  { name: "Red Bull", tier: "support" },
+  { name: "Wahoo", tier: "support" },
+  { name: "Castelli", tier: "support" },
+  { name: "Oakley", tier: "support" },
+]
+---
+
+<Layout title="Partner - Philipp Kaider">
+  <section class="bs-container py-16 lg:py-24">
+    <h1 class="bs-h1 mb-4">Partner & Sponsoren</h1>
+    <p class="sponsors-intro">
+      Ohne meine Partner wäre mein Erfolg nicht möglich. Sie unterstützen mich mit Equipment,
+      Know-how und dem Glauben an meine Vision. Gemeinsam zeigen wir, was möglich ist.
+    </p>
+
+    <h2 class="sponsors-section-title">Hauptpartner</h2>
+    <div class="sponsors-grid sponsors-grid--main">
+      {sponsors.filter(s => s.tier === 'main').map(sponsor => (
+        <div class="sponsor-card sponsor-card--main">
+          <div class="sponsor-logo-placeholder"></div>
+          <span class="sponsor-name">{sponsor.name}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="sponsors-section-title">Unterstützer</h2>
+    <div class="sponsors-grid sponsors-grid--support">
+      {sponsors.filter(s => s.tier === 'support').map(sponsor => (
+        <div class="sponsor-card">
+          <div class="sponsor-logo-placeholder"></div>
+          <span class="sponsor-name">{sponsor.name}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="sponsors-cta">
+      <h3>Interesse an einer Partnerschaft?</h3>
+      <p>Gemeinsam können wir Großes erreichen. Kontaktieren Sie mich für Sponsoring-Möglichkeiten.</p>
+      <a href="/contact" class="bs-btn">Kontakt aufnehmen</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sponsors-intro {
+    color: var(--color-bs-foreground-dark);
+    max-width: 40rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .sponsors-section-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-bs-foreground-light);
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .sponsors-section-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .sponsors-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .sponsors-grid--main {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .sponsors-grid--support {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .sponsor-card {
+    background: var(--color-bs-surface-2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsor-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .sponsor-card--main {
+    padding: 2rem;
+  }
+
+  .sponsor-logo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: linear-gradient(135deg, var(--color-bs-surface-1), var(--color-bs-surface-3));
+    border-radius: 0.5rem;
+  }
+
+  .sponsor-name {
+    font-weight: 500;
+    color: var(--color-bs-foreground-light);
+    font-size: 0.875rem;
+  }
+
+  .sponsors-cta {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--color-bs-surface-2);
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .sponsors-cta h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-bs-foreground-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .sponsors-cta p {
+    color: var(--color-bs-foreground-dark);
+    margin-bottom: 1.5rem;
+  }
+</style>

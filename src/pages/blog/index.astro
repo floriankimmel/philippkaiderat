@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import BlogCard from "../../components/BlogCard.astro"
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)
+---
+
+<Layout title="Blog - Philipp Kaider">
+  <section class="bs-container py-16 lg:py-24">
+    <h1 class="bs-h1 mb-12">Blog</h1>
+
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          date={post.data.date}
+          image={post.data.image}
+          excerpt={post.data.excerpt}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @supports (grid-template-rows: masonry) {
+    .blog-grid {
+      grid-template-rows: masonry;
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro"
+import HeroGrid from "../components/HeroGrid.astro"
+
+import heroSections from "../data/hero_sections.json"
+import global_settings from "../data/global_settings.json"
+---
+
+<Layout title={global_settings.title} fullHeight={true} hideHeader={true}>
+  <HeroGrid
+    sections={heroSections.sections}
+    defaultImage={heroSections.defaultImage}
+  />
+</Layout>

@@ -1,0 +1,39 @@
+{
+  "title": "Philipp Kaider",
+  "description": "Offizieller Webauftritt von Philipp Kaider - Ultra-Cyclist, RAAM Sieger 2025, 24h Weltmeister",
+  "social_image": "/1200x630.jpg",
+  "base_url": "https://philippkaider.at",
+  "theme_color": "#18181b",
+  "nav": [
+    {
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "title": "Über mich",
+      "link": "/about"
+    },
+    {
+      "title": "Blog",
+      "link": "/blog"
+    },
+    {
+      "title": "Partner",
+      "link": "/sponsors"
+    },
+    {
+      "title": "Kontakt",
+      "link": "/contact"
+    }
+  ],
+  "social_links": [
+    {
+      "title": "Instagram",
+      "link": "https://instagram.com/philippkaider"
+    },
+    {
+      "title": "Facebook",
+      "link": "https://facebook.com/philippkaider"
+    }
+  ]
+}
