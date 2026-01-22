@@ -16,5 +16,6 @@
     "i18next": "^25.7.4",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "packageManager": "bun@1.1.0"
 }
