@@ -2,6 +2,7 @@
 dist/
 # generated types
 .astro/
+backlog
 
 # dependencies
 node_modules/
